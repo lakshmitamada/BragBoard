@@ -1,6 +1,10 @@
 # 🎯 Bragboard
 
+<<<<<<< HEAD
 ![Bragboard Logo](https://static.cdnlogo.com/logos/f/9/flipboard_800.png)  
+=======
+![Bragboard Logo](https://png.pngtree.com/png-clipart/20220627/original/pngtree-letter-b-logo-design-vector-sign-business-card-templates-png-image_8209135.png)  
+>>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
 
 Bragboard is a modern dashboard application for **tracking achievements, projects, and employee performance**.  
 It supports **employee, admin, and superadmin roles**, with features for managing employees, posting updates, and interactive dashboards.

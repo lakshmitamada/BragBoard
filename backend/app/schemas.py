@@ -50,6 +50,7 @@ class TokenPayload(BaseModel):
 class UpdateProfile(BaseModel):
     joining_date: Optional[str] = None
     current_project: Optional[str] = None
+<<<<<<< HEAD
     group_members: Optional[str] = None
 
 
@@ -92,3 +93,6 @@ class CommentOut(BaseModel):
 
     class Config:
         orm_mode = True
+=======
+    group_members: Optional[str] = None
+>>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f

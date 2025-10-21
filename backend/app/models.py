@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, Text
 from sqlalchemy.sql import func
+=======
+from sqlalchemy import Column, Integer, String, Boolean
+>>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
 from .database import Base
 
 
@@ -33,6 +37,7 @@ class SecurityKey(Base):
 
 
 
+<<<<<<< HEAD
 # Shout-out core post
 class ShoutOut(Base):
     __tablename__ = "shoutouts"
@@ -74,3 +79,5 @@ class ShoutOutComment(Base):
     content = Column(Text, nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
 
+=======
+>>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f

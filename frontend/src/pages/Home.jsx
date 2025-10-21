@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import "../styles/Home.scss";
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import { api } from "../api";
 
@@ -15,6 +16,12 @@ export default function Home() {
   const [commentsOpen, setCommentsOpen] = useState({});
   const [commentsMap, setCommentsMap] = useState({});
   const [commentInput, setCommentInput] = useState({});
+=======
+import { useState } from "react";
+
+export default function Home() {
+  const [active, setActive] = useState("createPost");
+>>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
 
   const menuItems = [
     { key: "createPost", label: "Create Post" },
@@ -26,6 +33,7 @@ export default function Home() {
     { key: "profile", label: "Profile Settings" },
   ];
 
+<<<<<<< HEAD
   useEffect(() => {
     if (active === "shout") {
       fetchEmployees();
@@ -101,6 +109,8 @@ export default function Home() {
     } catch (_) {}
   };
 
+=======
+>>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
   return (
     <>
       <Navbar />
@@ -121,6 +131,7 @@ export default function Home() {
 
         <main className="content">
           {active === "createPost" && <h2>Create a new post</h2>}
+<<<<<<< HEAD
           {active === "shout" && (
             <div>
               <h2>Send a shout to an employee</h2>
@@ -191,6 +202,9 @@ export default function Home() {
               </div>
             </div>
           )}
+=======
+          {active === "shout" && <h2>Send a shout to an employee</h2>}
+>>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
           {active === "timeline" && <h2>Write on your timeline</h2>}
           {active === "myAchievements" && <h2>My Achievements</h2>}
           {active === "notifications" && <h2>Notifications</h2>}

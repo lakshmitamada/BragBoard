@@ -1,18 +1,31 @@
+<<<<<<< HEAD
 from fastapi import APIRouter, Depends, HTTPException, status, Response, Request, UploadFile, File, Form
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
+=======
+from fastapi import APIRouter, Depends, HTTPException, status, Response, Request
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy import select
+>>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
 from datetime import timedelta
 from jose import jwt, JWTError
 from passlib.context import CryptContext
 import secrets
 from typing import Optional, List
+<<<<<<< HEAD
 import os
 from uuid import uuid4
+=======
+>>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
 
 from .auth import get_current_admin_user, get_current_user, get_password_hash
 from . import auth, crud, schemas
 from .database import get_db
+<<<<<<< HEAD
 from .models import User, SecurityKey, ShoutOut, ShoutOutTag, ShoutOutReaction, ShoutOutComment
+=======
+from .models import User, SecurityKey
+>>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
 
 router = APIRouter(prefix="/auth", tags=["Auth"])
 admin_router = APIRouter(prefix="/admin", tags=["Admin"])
@@ -302,6 +315,7 @@ async def update_profile(
     await db.commit()
     await db.refresh(user)
 
+<<<<<<< HEAD
     return user
 
 
@@ -539,3 +553,6 @@ async def my_metrics(
         "comments_made": int(comments.scalar() or 0),
         "recent": recent,
     }
+=======
+    return user
+>>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
