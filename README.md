@@ -1,5 +1,4 @@
 # 🎯 Bragboard 
-=======
 ![Bragboard Logo](https://png.pngtree.com/png-clipart/20220627/original/pngtree-letter-b-logo-design-vector-sign-business-card-templates-png-image_8209135.png)  
 
 Bragboard is a modern dashboard application for **tracking achievements, projects, and employee performance**.  
