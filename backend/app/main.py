@@ -1,8 +1,5 @@
 from fastapi import FastAPI
-<<<<<<< HEAD
 from fastapi.staticfiles import StaticFiles
-=======
->>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
 from fastapi.middleware.cors import CORSMiddleware
 from .routers import router  # existing API router
 from .test_db_router import router as test_db_router  # <-- import new router
@@ -43,9 +40,6 @@ from .models import Base
 async def on_startup():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
-<<<<<<< HEAD
 
 # serve uploads
 app.mount("/uploads", StaticFiles(directory="uploads"), name="uploads")
-=======
->>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f

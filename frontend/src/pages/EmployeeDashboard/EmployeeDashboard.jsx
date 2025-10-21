@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import "../EmployeeDashboard/EmployeeDashboard.scss";
@@ -68,18 +67,10 @@ export default function EmployeeDashboard() {
     }
   };
 
-=======
-import Navbar from "../../components/Navbar";
-import "../EmployeeDashboard/EmployeeDashboard.scss";
-import "../../styles/Navbar.scss"
-
-export default function EmployeeDashboard() {
->>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
   return (
     <>
       <Navbar />
       <div className="dashboard-container">
-<<<<<<< HEAD
         <h1>Shout-outs</h1>
 
         {/* Performance Summary */}
@@ -144,10 +135,6 @@ export default function EmployeeDashboard() {
             </div>
           ))}
         </div>
-=======
-        <h1>Employee Dashboard</h1> 
-        <p>Welcome! </p>
->>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
       </div>
     </>
   );

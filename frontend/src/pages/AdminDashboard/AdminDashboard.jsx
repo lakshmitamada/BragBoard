@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import "../AdminDashboard/AdminDashboard.scss";
-<<<<<<< HEAD
 import { api } from "../../api";
-=======
->>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
 
 export default function AdminDashboard({ accessToken: propToken }) {
   const [securityKeys, setSecurityKeys] = useState([]);
@@ -43,18 +40,7 @@ export default function AdminDashboard({ accessToken: propToken }) {
   const generateKey = async () => {
     if (!accessToken) return alert("Access token missing. Please login.");
     try {
-<<<<<<< HEAD
       const { data } = await api.post("/auth/security-keys");
-=======
-      const res = await fetch("http://127.0.0.1:8000/auth/security-keys", {
-        method: "POST",
-        headers: { Authorization: `Bearer ${accessToken}` },
-      });
-      if (!res.ok) {
-        throw new Error(`Error: ${res.status} ${res.statusText}`);
-      }
-      const data = await res.json();
->>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
       alert(`New Security Key: ${data.security_key}`);
       fetchKeys(); // Refresh list
     } catch (err) {

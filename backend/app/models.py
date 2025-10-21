@@ -1,9 +1,6 @@
-<<<<<<< HEAD
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime, Text
-from sqlalchemy.sql import func
-=======
-from sqlalchemy import Column, Integer, String, Boolean
->>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
+from sqlalchemy import Column, Integer, String, Boolean, DateTime, ForeignKey, Text
+from sqlalchemy.orm import relationship
+from datetime import datetime
 from .database import Base
 
 
@@ -35,49 +32,53 @@ class SecurityKey(Base):
     is_used = Column(Boolean, default=False)
 
 
-
-
-<<<<<<< HEAD
-# Shout-out core post
 class ShoutOut(Base):
     __tablename__ = "shoutouts"
 
     id = Column(Integer, primary_key=True, index=True)
-    author_id = Column(Integer, ForeignKey("users.id"), nullable=False, index=True)
+    author_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     message = Column(Text, nullable=False)
-    image_url = Column(String(512), nullable=True)
-    created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+    image_url = Column(String(500), nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    # Relationships
+    author = relationship("User", backref="shoutouts")
+    tags = relationship("ShoutOutTag", backref="shoutout")
+    reactions = relationship("ShoutOutReaction", backref="shoutout")
+    comments = relationship("ShoutOutComment", backref="shoutout")
 
 
-# Tagging of recipients (many-to-many via link table)
 class ShoutOutTag(Base):
     __tablename__ = "shoutout_tags"
 
     id = Column(Integer, primary_key=True, index=True)
-    shoutout_id = Column(Integer, ForeignKey("shoutouts.id", ondelete="CASCADE"), nullable=False, index=True)
-    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    shoutout_id = Column(Integer, ForeignKey("shoutouts.id"), nullable=False)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+
+    # Relationships
+    user = relationship("User")
 
 
-# Reactions (emoji or short code)
 class ShoutOutReaction(Base):
     __tablename__ = "shoutout_reactions"
 
     id = Column(Integer, primary_key=True, index=True)
-    shoutout_id = Column(Integer, ForeignKey("shoutouts.id", ondelete="CASCADE"), nullable=False, index=True)
-    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
-    emoji = Column(String(16), nullable=False)  # store emoji or shortcode
-    created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+    shoutout_id = Column(Integer, ForeignKey("shoutouts.id"), nullable=False)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    emoji = Column(String(10), nullable=False)
+
+    # Relationships
+    user = relationship("User")
 
 
-# Comments on shout-outs
 class ShoutOutComment(Base):
     __tablename__ = "shoutout_comments"
 
     id = Column(Integer, primary_key=True, index=True)
-    shoutout_id = Column(Integer, ForeignKey("shoutouts.id", ondelete="CASCADE"), nullable=False, index=True)
-    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
+    shoutout_id = Column(Integer, ForeignKey("shoutouts.id"), nullable=False)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     content = Column(Text, nullable=False)
-    created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
 
-=======
->>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
+    # Relationships
+    user = relationship("User")

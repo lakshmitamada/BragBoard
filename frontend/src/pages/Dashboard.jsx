@@ -1,16 +1,8 @@
-<<<<<<< HEAD
 import { useContext, useEffect, useState } from "react";
-=======
-import { useContext, useEffect } from "react";
->>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
 import { AuthContext } from "../context/AuthContext.jsx";
 import Navbar from "../components/Navbar.jsx";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api"; 
-<<<<<<< HEAD
-=======
-import { useState } from "react";
->>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
 import "../styles/Dashboard.scss";
 
 export default function Dashboard() {
@@ -59,21 +51,16 @@ export default function Dashboard() {
             <p>8</p>
           </div>
         </div>
-<<<<<<< HEAD
         <div className="feed">
           {/* Minimal feed preview for admin */}
           <h2>Latest Shout-outs</h2>
           <AdminFeedPreview />
         </div>
-=======
->>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
         <button className="logout-btn" onClick={logout}>Logout</button>
       </div>
     </>
   );
 }
-<<<<<<< HEAD
-
 function AdminFeedPreview() {
   const [feed, setFeed] = useState([]);
   useEffect(() => {
@@ -96,5 +83,3 @@ function AdminFeedPreview() {
     </div>
   );
 }
-=======
->>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f

@@ -32,7 +32,7 @@ class UserOut(BaseModel):
     group_members: Optional[str] = None  # <-- optional, default True
     
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 
@@ -50,17 +50,10 @@ class TokenPayload(BaseModel):
 class UpdateProfile(BaseModel):
     joining_date: Optional[str] = None
     current_project: Optional[str] = None
-<<<<<<< HEAD
     group_members: Optional[str] = None
 
 
-# -------- ShoutOut Schemas --------
-class ShoutOutCreate(BaseModel):
-    message: str
-    tagged_user_ids: List[int] = []
-    # image will be uploaded via multipart; image_url filled server-side
-
-
+# ----- ShoutOut Schemas -----
 class ShoutOutOut(BaseModel):
     id: int
     author_id: int
@@ -73,26 +66,43 @@ class ShoutOutOut(BaseModel):
     comments_count: int = 0
 
     class Config:
-        orm_mode = True
+        from_attributes = True
+
+
+class ShoutOutCommentOut(BaseModel):
+    id: int
+    content: str
+    created_at: Optional[str] = None
+    user_id: int
+
+    class Config:
+        from_attributes = True
+
+
+class MetricsOut(BaseModel):
+    shoutouts_given: int
+    shoutouts_received: int
+    comments_made: int
+    recent: List[dict]
 
 
 class ReactionIn(BaseModel):
     emoji: str
 
 
-class CommentCreate(BaseModel):
+class CommentIn(BaseModel):
     content: str
 
 
 class CommentOut(BaseModel):
     id: int
-    shoutout_id: int
-    user_id: int
     content: str
     created_at: Optional[str] = None
+    user_id: int
 
     class Config:
-        orm_mode = True
-=======
-    group_members: Optional[str] = None
->>>>>>> 44a975c9b459787b377eaa0374e29e58f29a4d1f
+        from_attributes = True
+
+
+class CommentCreate(BaseModel):
+    content: str
