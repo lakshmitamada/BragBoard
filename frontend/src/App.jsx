@@ -15,7 +15,7 @@ import FIEmployeeDashboard from "./pages/Finance/FIEmployeeDashboard";
 import HREmployeeDashboard from "./pages/HR/HREmployeeDashboard";
 import ITEmployeeDashboard from "./pages/IT/ITEmployeeDashboard";
 import SuperAdminDashboard from "./pages/SuperAdminDashboard/SuperAdminDashboard";
-import './index.css';
+// import "./index.css";
 
 
 function App() {
@@ -24,6 +24,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
+        
         <Routes>
           {/* Landing page → Login */}
           <Route path="/" element={<Home />} />

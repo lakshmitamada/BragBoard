@@ -12,7 +12,7 @@
   font-size: 1.8rem;
 
   /* Gradient text */
-  background: linear-gradient(90deg, #b92b27, #1565C0);
+  background: linear-gradient(90deg, #0b8051, #035423);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -33,7 +33,7 @@
 
     &:focus {
       border-color: #0077ff;
-      box-shadow: 0 0 5px linear-gradient(90deg, #b92b27, #1565C0)
+      box-shadow: 0 0 5px linear-gradient(90deg, #0a802d, #03552f)
     }
   }
 
@@ -56,7 +56,7 @@
     cursor: pointer;
 
     &:hover {
-      border-color: linear-gradient(90deg, #b92b27, #1565C0)
+      border-color: linear-gradient(90deg, #0a6d17, #06530d)
     }
 
     option {
@@ -84,30 +84,42 @@
     transition: all 0.3s ease;
 
     &:hover {
-      background-color: #1565C0;
+      background-color: #0b8b67;
       color: #fff;
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    &.active {
-      background-color: #b92b27;
-      color: #fff;
-      border-color: #b92b27;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    // &.active {
+    //   background-color: #1b0c0c;
+    //   color: #fff;
+    //   border-color: #be0c06;
+    //   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
-      &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
-      }
-    }
+    //   &:hover {
+    //     transform: translateY(-2px);
+    //     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+    //   }
+    // }
+    &.active {
+  background-color: #000000; /* black */
+  color: #ffffff;
+  border-color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
+  }
+}
+
   }
 
   /* Register Button */
   button.register-submit {
     width: 100%;
     padding: 12px;
-    background: linear-gradient(90deg, #b92b27, #1565C0);
+    background: linear-gradient(90deg, #037a37, #025227);
     color: #fff;
     border: none;
     border-radius: 6px;

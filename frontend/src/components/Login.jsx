@@ -11,33 +11,38 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-  try {
-    const res = await api.post("auth/login", { email, password, role });
-    console.log(res.data);
+    try {
+      const res = await api.post("/auth/login", { email, password, role });
+      console.log("Login response:", res.data);
 
-    localStorage.setItem("access_token", res.data.access_token);
-    localStorage.setItem("refresh_token", res.data.refresh_token);
-    localStorage.setItem("role", role);
-        // Save access token in localStorage
-    localStorage.setItem("accessToken", res.data.access_token);
+      // Store tokens
+      localStorage.setItem("access_token", res.data.access_token);
+      localStorage.setItem("refresh_token", res.data.refresh_token);
+      localStorage.setItem("role", role);
+      localStorage.setItem("accessToken", res.data.access_token);
 
-    // Optionally save user info
-    localStorage.setItem("user", JSON.stringify(res.data.user));
+      // Store user info if available
+      if (res.data.user) {
+        localStorage.setItem("user", JSON.stringify(res.data.user));
+        localStorage.setItem("userName", res.data.user.name || res.data.user.username);
+        localStorage.setItem("userDepartment", res.data.user.department);
+      }
 
-    alert(`${role.charAt(0).toUpperCase() + role.slice(1)} logged in successfully!`);
+      alert(`${role.charAt(0).toUpperCase() + role.slice(1)} logged in successfully!`);
 
-    // ✅ Redirect based on role
-    if (role === "admin") {
-      navigate("/admin/dashboard");
-    } else {
-      navigate("/employee/dashboard");
+      // Redirect based on role
+      if (role === "admin") {
+        navigate("/admin/dashboard");
+      } else {
+        navigate("/employee/dashboard");
+      }
+
+    } catch (err) {
+      console.error("Login error:", err.response?.data || err.message);
+      const errorMessage = err.response?.data?.detail || "Login failed. Please check your credentials.";
+      alert(errorMessage);
     }
-
-  } catch (err) {
-    console.error(err.response?.data || err.message);
-    alert("Login failed.");
-  }
-};
+  };
 
 
   return (
